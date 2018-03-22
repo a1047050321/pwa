@@ -9,4 +9,21 @@
 <body>
     这是我的第一个pwa，也是我第一个github pages
 </body>
+<script>
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/js.sw.js', {scope: '/'})
+            .then(function (registration) {
+
+                // 注册成功
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(function (err) {
+
+                // 注册失败:(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+    });
+}
+</script>
 </html>
